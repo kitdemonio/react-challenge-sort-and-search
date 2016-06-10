@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import SearchBar from './components/searchbar';
+import Toolbar from './components/toolbar/toolbar';
 
 
 export default class App extends Component {
@@ -12,6 +13,7 @@ export default class App extends Component {
         return (
             <div className="container app">
                 <SearchBar />
+                <Toolbar />
             </div>
         );
     }

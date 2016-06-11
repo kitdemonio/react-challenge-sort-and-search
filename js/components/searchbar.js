@@ -18,7 +18,7 @@ export default class SearchBar extends React.Component {
 
     render() {
         return (
-            <input className="form-control" placeholder="Search in here..." onChange={this.updateText}/>
+            <input className="form-control" placeholder="Search people..." onChange={this.updateText}/>
         )
     }
 

@@ -23,3 +23,40 @@
   font-size: 2rem;
   color: #ccc;
 }
+
+.search-bar {
+  margin: 15px 0 30px 0;
+}
+
+.toolbar {
+  button {
+    margin-right: 10px;
+    font-size: 16px;
+    .icon {
+      padding: 0 10px 0 0;
+    }
+  }
+  .user-data {
+    margin-top: 20px;
+  }
+  .active-user, .user-list {
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .active-user {
+    padding: 15px;
+  }
+
+  .user-list {
+    img {
+      width: 59px;
+      height: 59px;
+    }
+    thead {
+      font-weight: 600;
+    }
+  }
+
+}

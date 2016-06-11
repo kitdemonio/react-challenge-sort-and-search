@@ -11,13 +11,14 @@ export default class ToolBar extends React.Component {
 
     render() {
         return (
-            <div>
-                {this.props.data.map(function (value) { // Only for test
-                    return (
-                        <p key={value.id}>{value.name}</p>
-                    )
-                })}
-                <UserData data={this.state.data}/>
+            <div className="row">
+                <div className="col-xs-12 pull-left">
+                    <button className="btn btn-default"><i className="icon fa fa-sort-alpha-asc"></i>Sort by name</button>
+                    <button className="btn btn-default"><i className="icon fa fa-sort-numeric-desc"></i>Sort by age</button>
+                </div>
+                <div className="col-xs-12">
+                    <UserData data={this.state.data}/>
+                </div>
             </div>
         )
     }

@@ -10,9 +10,13 @@ export default class UserData extends React.Component {
 
     render() {
         return (
-            <div>
-                <ActiveUser />
-                <UserList />
+            <div className="row user-data">
+                <div className="col-xs-4 col-md-2">
+                    <ActiveUser />
+                </div>
+                <div className="col-xs-8 col-md-10">
+                    <UserList />
+                </div>
             </div>
         )
     }

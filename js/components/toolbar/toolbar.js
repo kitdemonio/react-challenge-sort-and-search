@@ -5,8 +5,14 @@ export default class ToolBar extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: this.props.data
+            data: []
         };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            data: nextProps.data
+        })
     }
 
     render() {
@@ -23,3 +29,7 @@ export default class ToolBar extends React.Component {
         )
     }
 }
+
+ToolBar.propTypes = {
+    data: React.PropTypes.array.isRequired
+};

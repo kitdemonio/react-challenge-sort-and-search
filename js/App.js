@@ -9,9 +9,11 @@ export default class App extends Component {
         this.state = {
             data: []
         };
-        this.getData()
     }
-    
+
+    componentWillMount() {
+        this.getData();
+    }
 
     getData() {
         $.ajax({
@@ -19,25 +21,23 @@ export default class App extends Component {
             dataType: 'json',
             type: 'GET',
             success: function(data) {
-                this.setState({data: data},function () {
-                    this.showStateData()
-                });
+                this.setState({data: data});
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error('data.json', status, err.toString());
             }.bind(this)
         });
     }
-
-    showStateData() {
-        console.log(this.state.data);
-    }
-
+    
     render() {
         return (
-            <div className="container app">
-                <SearchBar />
-                <Toolbar data={this.state.data}/>
+            <div className="app">
+                <div className="container-fluid search-bar">
+                    <SearchBar />
+                </div>
+                <div className="container-fluid toolbar">
+                    <Toolbar data={this.state.data}/>
+                </div>
             </div>
         );
     }

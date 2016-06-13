@@ -3,32 +3,41 @@ import React from 'react';
 export default class ActiveUser extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            activeUser: {}
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.setState({
+            activeUser: nextProps.data[0]
+        })
     }
 
     render() {
         return (
             <div className="active-user">
-                <img src="../../images/dog.svg" alt="user-img"/>
-                <h3 className="text-center">Ada Bowers</h3>
+                <img src={"../../images/" + this.state.activeUser.image +".svg"} alt="user-img"/>
+                <h3 className="text-center">{this.state.activeUser.name}</h3>
                 <table className="table">
                     <tbody>
-                        <tr>
-                            <td>Age:</td>
-                            <td>28</td>
-                        </tr>
-                        <tr>
-                            <td>Favorite animal:</td>
-                            <td>Raccoon</td>
-                        </tr>
-                        <tr>
-                            <td>Phone</td>
-                            <td>8 (882) 413-7711</td>
-                        </tr>
+                    <tr>
+                        <td>Age:</td>
+                        <td>{this.state.activeUser.age}</td>
+                    </tr>
+                    <tr>
+                        <td>Favorite animal:</td>
+                        <td>{this.state.activeUser.image}</td>
+                    </tr>
+                    <tr>
+                        <td>Phone</td>
+                        <td>{this.state.activeUser.phone}</td>
+                    </tr>
                     </tbody>
                 </table>
                 <p className="text-center"><strong>Favourite Phrase:</strong>
                     <br />
-                    <span>Uzmavov jatvanci kipvaf avhazze ju wi tigekaw zoci ra ihjaro iw ihzu nefnarib gi hiuhohe.</span>
+                    <span>{this.state.activeUser.phrase}</span>
                 </p>
             </div>
         )

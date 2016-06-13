@@ -57,6 +57,16 @@
     thead {
       font-weight: 600;
     }
+    table {
+      margin-bottom: 0;
+      tbody {
+        tr {
+          &:hover {
+            cursor: pointer;
+            background-color: #eee;
+          }
+        }
+      }
+    }
   }
-
 }

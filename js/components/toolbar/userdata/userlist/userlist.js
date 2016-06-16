@@ -1,15 +1,28 @@
 import React from 'react';
 
-export default class UserList extends React.Component { //TODO: Make onClick handler for ActiveUser component
+export default class UserList extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+
+    handleClick(e) {
+        let id = +e.target.parentNode.dataset.id;
+        let data = this.props.data;
+        data.filter.bind(null, id);
+        data.filter((value) => {
+            if (value.id === id) {
+                this.props.activeUser(value)
+            }
+        });
     }
 
 
     render() {
-        const userListData = this.props.data.map(function (value) {
+        const userListData = this.props.data.map((value) => {
             return (
-                <tr key={value.id}>
+                <tr key={value.id} data-id={value.id} onClick={this.handleClick}>
                     <td>
                         <img src={"../../images/" + value.image + '.svg'} alt="user-img"/>
                     </td>
@@ -29,7 +42,7 @@ export default class UserList extends React.Component { //TODO: Make onClick han
             <div className="user-list">
                 <table className="table table-striped">
                     <thead>
-                    <tr>
+                    <tr >
                         <td>Image</td>
                         <td>Name</td>
                         <td>Age</td>
@@ -37,7 +50,7 @@ export default class UserList extends React.Component { //TODO: Make onClick han
                     </tr>
                     </thead>
                     <tbody>
-                        {userListData}
+                    {userListData}
                     </tbody>
                 </table>
             </div>

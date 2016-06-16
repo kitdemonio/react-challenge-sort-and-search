@@ -10,9 +10,10 @@ export default class ActiveUser extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         this.setState({
-            activeUser: nextProps.data[0]
+            activeUser: nextProps.data
         })
     }
+
 
     render() {
         return (

@@ -21,22 +21,28 @@ export default class UserList extends React.Component {
 
     render() {
         const userListData = this.props.data.map((value) => {
-            return (
-                <tr key={value.id} data-id={value.id} onClick={this.handleClick}>
-                    <td>
-                        <img src={"../../images/" + value.image + '.svg'} alt="user-img"/>
-                    </td>
-                    <td>
-                        {value.name}
-                    </td>
-                    <td>
-                        {value.age}
-                    </td>
-                    <td>
-                        {value.phone}
-                    </td>
-                </tr>
-            )
+            if (this.props.data.length === 0) {
+                return (
+                    <h1> Nothing found </h1>
+                )
+            } else {
+                return (
+                    <tr key={value.id} data-id={value.id} onClick={this.handleClick}>
+                        <td>
+                            <img src={"../../images/" + value.image + '.svg'} alt="user-img"/>
+                        </td>
+                        <td>
+                            {value.name}
+                        </td>
+                        <td>
+                            {value.age}
+                        </td>
+                        <td>
+                            {value.phone}
+                        </td>
+                    </tr>
+                )
+            }
         });
         return (
             <div className="user-list">

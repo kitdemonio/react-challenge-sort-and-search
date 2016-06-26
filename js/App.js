@@ -8,10 +8,74 @@ export default class App extends Component {
         super(props);
         this.state = {
             data: [],
-            searchText: '',
-            immutableData: []
+            searchText: '', // Text from searchbar component
+            immutableData: [], // Only for handleSearchText
+            clicked: false, // For button handler
         };
         this.handleSearchText = this.handleSearchText.bind(this);
+        this.handleButtonClick = this.handleButtonClick.bind(this);
+    }
+
+    sortDataByName() {
+        let data = this.state.data;
+        let sortedData;
+        if (this.state.clicked === true) {
+            sortedData = data.sort((a, b) => {
+                if (a.name > b.name) {
+                    return 1;
+                } else if (a.name < b.name) {
+                    return -1;
+                }
+                return 0;
+            });
+            this.setState({
+                data: sortedData
+            })
+        } else {
+            sortedData = data.sort((a, b) => {
+                if (a.name > b.name) {
+                    return -1;
+                } else if (a.name < b.name) {
+                    return 1;
+                }
+                return 0;
+            });
+            this.setState({
+                data: sortedData
+            })
+        }
+    }
+
+    sortDataByAge() {
+        let data = this.state.data;
+        let sortedData;
+        if (this.state.clicked === true) {
+            sortedData = data.sort((a, b) => {
+                return a.age - b.age;
+            });
+            this.setState({
+                data: sortedData
+            })
+        } else {
+            sortedData = data.sort((a, b) => {
+                return b.age - a.age;
+            });
+            this.setState({
+                data: sortedData
+            })
+        }
+
+    }
+
+    handleButtonClick(e) {
+        this.setState({
+            clicked: !this.state.clicked
+        });
+        if (e.target.innerHTML.toLowerCase() === "sort by name") {
+            this.sortDataByName();
+        } else if (e.target.innerHTML.toLowerCase() === "sort by age") {
+            this.sortDataByAge();
+        }
     }
 
     handleSearchText(e) {
@@ -62,7 +126,7 @@ export default class App extends Component {
                     <SearchBar handleSearchText={this.handleSearchText}/>
                 </div>
                 <div className="container-fluid toolbar">
-                    <Toolbar data={this.state.data}/>
+                    <Toolbar data={this.state.data} handleClick={this.handleButtonClick}/>
                 </div>
             </div>
         );

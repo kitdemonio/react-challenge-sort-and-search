@@ -23,9 +23,7 @@ export default class UserData extends React.Component {
     getActiveUser(user) {
         this.setState({
             activeUser: user
-        }, function () {
-            console.info(this.state.activeUser);
-        })
+        });
     }
 
     render() {

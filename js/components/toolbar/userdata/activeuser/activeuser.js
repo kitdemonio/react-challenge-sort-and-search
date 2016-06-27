@@ -23,7 +23,7 @@ export default class ActiveUser extends React.Component {
         } else {
             return (
                 <div className="active-user">
-                    <img src={"../../images/" + this.state.activeUser.image +".svg"} alt="user-img"/>
+                    <img src={"images/" + this.state.activeUser.image +".svg"} alt="user-img"/>
                     <h3 className="text-center">{this.state.activeUser.name}</h3>
                     <table className="table">
                         <tbody>

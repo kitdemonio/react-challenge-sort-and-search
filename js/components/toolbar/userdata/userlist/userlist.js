@@ -29,7 +29,7 @@ export default class UserList extends React.Component {
                 return (
                     <tr key={value.id} data-id={value.id} onClick={this.handleClick}>
                         <td>
-                            <img src={"../../images/" + value.image + '.svg'} alt="user-img"/>
+                            <img src={"images/" + value.image + '.svg'} alt="user-img"/>
                         </td>
                         <td>
                             {value.name}

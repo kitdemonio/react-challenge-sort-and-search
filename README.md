@@ -1,3 +1,3 @@
-https://kitdemonio.github.io/
+Demo: https://kitdemonio.github.io/react-challenge/
 
 
